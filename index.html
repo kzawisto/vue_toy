@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link type="text/css" rel="stylesheet" href="js/dist/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="js/dist/bootstrap-vue.min.css" />
+    <link type="text/css" rel="stylesheet" href="js/mycss.css" />
+
+    <!-- Load polyfills to support older browsers -->
+    <script src="//polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"
+        crossorigin="anonymous"></script>
+
+    <!-- Load Vue followed by BootstrapVue -->
+    <script src="js/dist/vue.min.js"></script>
+    <script src="js/dist/bootstrap-vue.min.js"></script>
+    <script src="js/dist/lodash.js"></script>
+
+
+    <!-- Load the following for BootstrapVueIcons support -->
+    <script src="js/dist/bootstrap-vue-icons.min.js"></script>
+    <!-- <script src="lib/vue.js"></script> -->
+    <script src='js/mainnav.js'></script>
+    <script src='js/questions.js'></script>
+    <!-- <script src='js/mycss.css'></script> -->
+</head>
+
+
+
+<body>
+
+
+<!-- 
+    <div id="content">
+
+        <main-navigator></main-navigator>
+
+    </div> -->
+
+    <div id='app-5'>
+        <!-- <div v-for="value in options">
+            <b-button variant="outline-primary" v-on:click="doSth(value)">{{ value }}</b-button>
+        </div>
+        <answer v-bind:answer="{text:'Wui',pic:'asset/img/mercury.jpg'}" id="A" v-bind:onbutton="()=>alert('wui')"></answer> -->
+        <!-- <question v-bind:question="questions[0]"></question> -->
+        <quiz></quiz>
+    </div>
+    <script>
+        // const NotFound = { template: '<p>Page not found</p>' }
+        // const Home = { template: '<p>home page</p>' }
+        // const About = { template: '<p>about page</p>' }
+
+        // const routes = {
+        //     '/': Home,
+        //     '/about': About
+        // }
+
+        // new Vue({
+        //     el: '#app',
+        //     data: {
+        //         currentRoute: window.location.pathname
+        //     },
+        //     computed: {
+        //         ViewComponent() {
+        //             return routes[this.currentRoute] || NotFound
+        //         }
+        //     },
+        //     render(h) { return h(this.ViewComponent) }
+        // })
+
+
+        // var content = new Vue({
+        //     el: "#content"
+
+        // })
+        var app5 = new Vue({
+            el: '#app-5',
+            data: {
+                message: 'Hello Vue.js!',
+                options: ["one", "other"]
+            },
+            methods: {
+                doSth(arg) {
+                    console.log(arg)
+                }
+            }
+        })
+        var menu = new Vue({ el: "#menu" })
+    </script>
+</body>
+
+</html>
