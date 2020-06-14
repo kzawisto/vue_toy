@@ -148,7 +148,6 @@ Vue.component("quiz", {
             }
             this.currentIdx= getRandomInt(questions.length)
         }
-
     },
     template:`
     <div>
