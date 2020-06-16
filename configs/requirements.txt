@@ -1,0 +1,4 @@
+Django==2.0
+gunicorn
+psycopg2==2.7.6
+django-rest-knox

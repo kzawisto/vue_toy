@@ -1,0 +1,5 @@
+
+POSTGRES_USER=hello_django
+POSTGRES_PASSWORD=passwd
+POSTGRES_DB=hello
+PGDATA=/var/lib/postgresql/data/pgdata

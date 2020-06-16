@@ -1,0 +1,36 @@
+
+version: "2.1"
+services:
+  postgres_sql:
+    image: postgres:latest
+    container_name: postgres_sql
+    networks:
+      - db_net
+    ports:
+      - "5432:5432"
+    env_file:
+      - configs/postgres_env
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data/pgdata
+
+  backend:
+    build: configs
+    container_name: backend
+    stdin_open: true
+    tty: true
+    #command: bash -c "cd /workdir/appbackend && python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+    command: bash -c "while !</dev/tcp/postgres_sql/5432; do sleep 1; done; cd /workdir/appbackend && python3 manage.py makemigrations && python3 manage.py migrate && gunicorn appbackend.wsgi -b 0.0.0.0:8000"
+    restart: always
+    env_file:
+      - configs/postgres_env
+    volumes:
+      - ./app_backend:/workdir
+    ports:
+      - "8000:8000"
+    networks:
+      - db_net
+    depends_on: 
+      - postgres_sql
+networks:
+  db_net:
+    driver: bridge
